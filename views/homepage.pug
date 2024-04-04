@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head 
+    title= `${title}`
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Cars
+    div.card
+      table.styled-table
+        tr
+          th ID
+          th Make
+          th Model
+          th Color
+        each car in data 
+          tr
+            td #{car.id}
+            td #{car.properties.make}
+            td #{car.properties.model}
+            td #{car.properties.color}
