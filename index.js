@@ -27,6 +27,7 @@ app.get('/', async (req, res) => {
         res.render('homepage', { title: 'Cars | HubSpot APIs', error: errorMessage, success: successMessage, data });      
     } catch (error) {
         console.error(error);
+        res.status(500).json({ message: "Server error" });
     }
 })
 // * Code for Route 1 goes here
