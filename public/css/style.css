@@ -85,3 +85,15 @@ input[type="submit"] {
 .styled-table td:hover {
     background-color: rgb(175, 215, 255);
 }
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: end;
+}
+.form-cell {
+    display: table-cell;
+    padding: 5px; /* Add some spacing */
+    min-width: 203px;;
+}

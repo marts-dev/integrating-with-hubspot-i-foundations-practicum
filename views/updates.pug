@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head 
+    title= `${title}`
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/style.css")
+
+  body
+    h1 Create or update a car
+    div.card
+      a(href="/") Return to the homepage
+      div.form-row
+        div.form-cell
+          b Make
+        div.form-cell
+          b Model
+        div.form-cell
+          b Year
+        div.form-cell
+          b VIN
+        div.form-cell
+          b Color
+        div.form-cell
+          b Action
+      each car in data
+        form(action='/update-cobj/'+car.id, method='POST')
+          div.form-row
+            div.form-cell
+              input(type='text', name='make', value=car.properties.make, placeholder='Make')
+            div.form-cell
+              input(type='text', name='model', value=car.properties.model, placeholder='Model')
+            div.form-cell
+              input(type='text', name='year', value=car.properties.year, placeholder='Year')
+            div.form-cell
+              input(type='text', name='vin', value=car.properties.vin, placeholder='VIN', disabled)
+            div.form-cell
+              input(type='text', name='color', value=car.properties.color, placeholder='Color')
+            div.form-cell
+              input(type='submit', value='Update')
+      form(action='/update-cobj', method='POST')
+          div.form-row
+            div.form-cell
+              input(type='text', name='make', placeholder='Make', required)
+            div.form-cell
+              input(type='text', name='model', placeholder='Model', required)
+            div.form-cell
+              input(type='text', name='year', placeholder='Year', required)
+            div.form-cell
+              input(type='text', name='vin', placeholder='VIN', required)
+            div.form-cell
+              input(type='text', name='color', placeholder='Color')
+            div.form-cell
+              input(type='submit', value='Create')

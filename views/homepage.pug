@@ -4,18 +4,31 @@ html(lang='en')
     title= `${title}`
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet", href="/css/style.css")
-  body
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+
+  body.container
     h1 Cars
     div.card
+      a(href="/update-cobj") Add to this table
       table.styled-table
         tr
-          th ID
           th Make
           th Model
           th Color
+          th VIN
+          th Year
         each car in data 
           tr
-            td #{car.id}
             td #{car.properties.make}
             td #{car.properties.model}
             td #{car.properties.color}
+            td #{car.properties.vin}
+            td #{car.properties.year}
+    if error
+      .alert.alert-danger(role="alert", data-dismiss="alert", aria-label="Close") #{error}
+        span(aria-hidden="true", class="close", type="button") &times;
+    if success
+      .alert.alert-success(role="alert", data-dismiss="alert", aria-label="Close") #{success}
+        span(aria-hidden="true", class="close", type="button") &times;
+script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js")
